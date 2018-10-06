@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cafeshop-frontdesk',
@@ -7,5 +6,5 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./frontdesk.component.scss']
 })
 export class FrontdeskComponent {
-  @Input() tables: [];
+  @Input() tables = [];
 }
