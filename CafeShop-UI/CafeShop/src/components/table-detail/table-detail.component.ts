@@ -6,4 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./table-detail.component.scss']
 })
 export class TableDetailComponent {
+  @Input() foods = [];
 }

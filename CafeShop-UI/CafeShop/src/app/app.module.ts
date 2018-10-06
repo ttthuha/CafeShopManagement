@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FrontdeskComponent } from 'src/components/frontdesk/frontdesk.component';
 import { TableDetailComponent } from 'src/components/table-detail/table-detail.component';
 
-import {MatCheckboxModule,
+import {
   MatCheckboxModule,
   MatButtonModule,
   MatInputModule,
