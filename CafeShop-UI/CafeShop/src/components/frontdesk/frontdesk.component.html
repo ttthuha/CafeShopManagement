@@ -1,8 +1,22 @@
+<table mat-table [dataSource]="tables" class="mat-elevation-z8">
 
-<ul>
-  <li *ngFor="let table of tables">
-    <div>
-      <p>{{table.name}}</p>
-    </div>
-  </li>
-</ul>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> BÀN </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>LOẠI BÀN </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>HÀNH ĐỘNG</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button>XEM CHI TIẾT</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

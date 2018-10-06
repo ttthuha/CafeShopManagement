@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FrontdeskComponent } from 'src/components/frontdesk/frontdesk.component';
+import { TableDetailComponent } from 'src/components/table-detail/table-detail.component';
+
 import {MatCheckboxModule,
   MatCheckboxModule,
   MatButtonModule,
@@ -39,13 +41,13 @@ import {MatCheckboxModule,
 @NgModule({
   declarations: [
     AppComponent,
-    FrontdeskComponent
+    FrontdeskComponent,
+    TableDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
