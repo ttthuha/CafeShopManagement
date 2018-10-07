@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FrontdeskComponent } from 'src/components/frontdesk/frontdesk.component';
 import { TableDetailComponent } from 'src/components/table-detail/table-detail.component';
-
+import { appRoutes } from './app.routers';
 import {
   MatCheckboxModule,
   MatButtonModule,
@@ -37,14 +37,23 @@ import {
   MatTableModule,
   MatSortModule,
   MatPaginatorModule} from '@angular/material';
+import { HomeScreenComponent } from 'src/screens/home-screen/home-screen.component';
+import { RouterModule } from '@angular/router';
+import { HistoryScreenComponent } from 'src/screens/history-screen/history-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontdeskComponent,
-    TableDetailComponent
+    TableDetailComponent,
+    HomeScreenComponent,
+    HistoryScreenComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,

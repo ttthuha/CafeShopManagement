@@ -1,5 +1,12 @@
-cafeshop-table-detail {
-    position: fixed;
-    right: 0;
-    top: 0;
+nav {
+  height: 80px;
+  border-bottom: 1px green;
+  a {
+    text-decoration: none;
+    color: #035c5d;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
+

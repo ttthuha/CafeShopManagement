@@ -15,6 +15,7 @@ export class FrontdeskComponent {
 
   getStatus(table) {
     const orderTable = this.orders[table.id];
+    console.log(orderTable);
     if (!!orderTable) {
       let sum = 0;
       for (const order of orderTable) {

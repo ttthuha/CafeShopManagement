@@ -1,12 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to CafeShop!
   </h1>
 </div>
-<cafeshop-frontdesk [tables]="tables" [orders]="orders" [foods]="foods" (viewDetailMenuClick)="viewDetailMenuClick($event)"></cafeshop-frontdesk>
-<cafeshop-table-detail [foods]="foods" [orders]="menuDetail.orders"  [table] = "menuDetail.selectedTable" *ngIf="menuDetail.isShow"
- (buttonClicked)="detailButtonClicked($event)"
-></cafeshop-table-detail>
 
-
+<nav>
+    <a routerLink="/" routerLinkActive="active">Lễ tân</a>
+    <a routerLink="/lich-su" routerLinkActive="active">Lịch sử giao dịch</a>
+</nav>
+<router-outlet></router-outlet>
