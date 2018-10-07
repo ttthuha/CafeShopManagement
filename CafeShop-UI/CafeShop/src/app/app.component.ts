@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cafeshop-root',
@@ -7,5 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() { }
+  constructor(public router: Router) {
+    router.events.subscribe((url: any) => console.log(url));
+   }
 }

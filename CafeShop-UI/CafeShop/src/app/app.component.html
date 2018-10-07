@@ -6,7 +6,8 @@
 </div>
 
 <nav>
-    <a routerLink="/" routerLinkActive="active">Lễ tân</a>
-    <a routerLink="/lich-su" routerLinkActive="active">Lịch sử giao dịch</a>
+    <a routerLink="/" [ngClass]="{'hightlight': router.url === '/'}" routerLinkActive="active">LỄ TÂN</a>
+    <a routerLink="/lich-su" [ngClass]="{'hightlight': router.url === '/lich-su'}" routerLinkActive="active">LỊCH SỬ</a>
+    <a routerLink="/quan-ly-nhan-vien" [ngClass]="{'hightlight': router.url === '/quan-ly-nhan-vien'}" routerLinkActive="active">QUẢN LÝ NHÂN VIÊN</a>
 </nav>
 <router-outlet></router-outlet>

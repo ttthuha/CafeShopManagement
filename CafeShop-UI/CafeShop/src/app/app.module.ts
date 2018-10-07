@@ -40,6 +40,7 @@ import {
 import { HomeScreenComponent } from 'src/screens/home-screen/home-screen.component';
 import { RouterModule } from '@angular/router';
 import { HistoryScreenComponent } from 'src/screens/history-screen/history-screen.component';
+import { UserManagementScreenComponent } from 'src/screens/user-management-screen/user-management-screen.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HistoryScreenComponent } from 'src/screens/history-screen/history-scree
     FrontdeskComponent,
     TableDetailComponent,
     HomeScreenComponent,
-    HistoryScreenComponent
+    HistoryScreenComponent,
+    UserManagementScreenComponent
   ],
   imports: [
     RouterModule.forRoot(

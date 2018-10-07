@@ -1,12 +1,15 @@
 nav {
-  height: 80px;
-  border-bottom: 1px green;
+  height: 60px;
   a {
     text-decoration: none;
-    color: #035c5d;
-    font-size: 30px;
+    color: gray;
+    font-size: 20px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .hightlight {
+    font-size: 25px;
+    color: #035c5d;
   }
 }
 
