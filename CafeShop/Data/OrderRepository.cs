@@ -6,26 +6,34 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Remotion.Linq.Clauses;
+
 namespace CafeShop.Data
 {
     public class OrderRepository
     {
-        public IEnumerable<OrderViewModel> Get()
+        public IEnumerable<OrderViewModel> Get(string tableId = null)
         {
-            using (SqlConnection connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
             {
-                return connection.Query<OrderViewModel>("select Id, TableId, FoodId, Quantity, Date from [Order] order by Date");
+                var whereClause = "WHERE 1 = 1";
+                if (tableId != null)
+                {
+                    whereClause += $"AND TableId=\'{tableId}\'";
+                }
+                return connection.Query<OrderViewModel>("Select Id, TableId, FoodId, Quantity, Date from [Order] " + whereClause + " Order By Date");
             }
         }
 
         public bool Create(IEnumerable<OrderViewModel> orderViewModels)
         {
-            using (SqlConnection connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
             {
                 foreach (var model in orderViewModels)
                 {
+                    model.Id = Guid.NewGuid();
                     model.Date = DateTime.Now;
-                    connection.Execute("insert into [Orders](Id, TableId, FoodId, Quantity, Date) values(@Id, @TableId, @FoodId, @Quantity, @Date)", model);
+                    connection.Execute("insert into [Order](Id, TableId, FoodId, Quantity, Date) values(@Id, @TableId, @FoodId, @Quantity, @Date)", model);
                 }
 
                 return true;
@@ -34,10 +42,32 @@ namespace CafeShop.Data
 
         public void DeleteOrdersByTable(Guid tableId)
         {
-            using (SqlConnection connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
             {
-                connection.Execute("DELETE FROM [Orders] WHERE TableId = @TableId)", new { @TableId = tableId });
+                connection.Execute("DELETE FROM [Order] WHERE TableId = @TableId", new { @TableId = tableId });
             }
+        }
+
+        public void Checkout(Guid tableId)
+        {
+            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            {
+                connection.Execute(@"
+                    declare @sessionId as uniqueidentifier  = newid();
+
+                    insert into OrderHistory(Id, OrderSessionId, TableId, FoodId, Quantity, Price, [Date])
+                    SELECT newid(), @sessionId
+                        ,[TableId]
+                        ,[FoodId]
+                        ,[Quantity]
+                        , Price
+                        ,[Date]
+                    FROM[dbo].[Order] as o
+                    inner join[dbo].Food as f on(f.Id = o.FoodId)
+                    where TableId = @TableId", new { @TableId = tableId });
+            }
+
+            DeleteOrdersByTable(tableId);
         }
     }
 

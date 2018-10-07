@@ -4,7 +4,9 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<cafeshop-frontdesk [tables]="tables"></cafeshop-frontdesk>
-<cafeshop-table-detail [foods]="foods"></cafeshop-table-detail>
+<cafeshop-frontdesk [tables]="tables" [orders]="orders" [foods]="foods" (viewDetailMenuClick)="viewDetailMenuClick($event)"></cafeshop-frontdesk>
+<cafeshop-table-detail [foods]="foods" [orders]="menuDetail.orders"  [table] = "menuDetail.selectedTable" *ngIf="menuDetail.isShow"
+ (buttonClicked)="detailButtonClicked($event)"
+></cafeshop-table-detail>
 
 
