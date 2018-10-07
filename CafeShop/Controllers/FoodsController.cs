@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using CafeShop.Data;
+﻿using CafeShop.Data;
 using CafeShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CafeShop.Controllers
 {
