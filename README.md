@@ -12,13 +12,28 @@ Phương thức giao tiếp:
           ------>             ----http (api)----->
  DATABASE          BACK END                       FRONT END
           <-----              <---http (api)-----
+II) Môi trường:
 
+1) Cài đặt Visual Studio 2017 Comunity. Lưu ý: Chọn NetCore option khi cài đặt
+  source: https://visualstudio.microsoft.com/downloads/
+2) Cài đặt Visual Studio Code:
+  source: https://visualstudio.microsoft.com/downloads/
+3) Cài đặt NodeJs: https://nodejs.org/en/download/
+4) Mở CommandLine lên chạy câu lệnh: 
+npm install -g @angular/cli
+Mục đích: Cài đặt angular commandline
+
+		  
 Cách chạy:
 
 1) Import Database bằng Script
-2) Mở thư mục CafeShop, chạy câu lệnh: dotnet restore sau đó dotnet run để chạy backend api
-3) FrontEnd:
-   npm install
-   ng s
-
+2) Backend: vào thư mục CafeShop, chạy câu lệnh sau để run back end api
+dotnet restore
+dotnet run
+hoặc: mở visualstudio lên, nhấn F5 để chạy
+3) FrontEnd: chạy thứ tự câu lệnh sau
+npm install
+npm run start
 mở http://localhost:4200 để chạy giao diện
+
+
