@@ -8,7 +8,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./home-screen.component.scss']
 })
 export class HomeScreenComponent implements OnInit {
-  public URL = 'https://localhost:44361/api';
+  public URL = 'https://localhost:44370/api';
   public title = 'CafeShop';
   public tables = [];
   public foods = [];
