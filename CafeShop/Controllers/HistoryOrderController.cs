@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CafeShop.Controllers
 {
-    [Route("api/history_orders")]
+    [Route("api/history-orders")]
     [ApiController]
     public class HistoryOrderController : ControllerBase
     {
