@@ -8,6 +8,24 @@
   <mat-card-subtitle>
       TỔNG TIỀN: {{getTotal()}}
     </mat-card-subtitle>
+
+    <mat-list>
+      <mat-list-item class="order-item" *ngFor="let order of getOrdersMapping()">
+        <h3 class="header" mat-line> {{ order.name }} </h3>
+        <p mat-line>
+          <span class="type"> {{order.type}} </span>
+        </p>
+        <div class="price"> {{order.price}}đ </div>
+        <button mat-icon-button (click)="buyOne(order)">
+          <mat-icon>home</mat-icon>
+        </button>
+        <span class="quantity text-center">{{order.quantity}}</span>
+        <button mat-icon-button (click)="removeOne(order)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+
   <table mat-table [dataSource]="getOrdersMapping()" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>TÊN</th>
@@ -21,7 +39,7 @@
 
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>GIÁ</th>
-      <td mat-cell *matCellDef="let element"> {{element.price}}đ</td>
+      <td mat-cell *matCellDef="let element"> {{element.price | currency:'đ'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="quantity">

@@ -5,3 +5,23 @@
   margin-bottom: 20px;
 }
 
+.order-item {
+  .header {
+    font-size: 20px;
+  }
+
+  .price {
+    color: #006158;
+    margin-right: 30px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .quantity {
+    width: 50px;
+  }
+  .type {
+    font-size: 16px;
+    color: gray;
+  }
+}
