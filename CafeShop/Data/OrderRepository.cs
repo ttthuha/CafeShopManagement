@@ -6,15 +6,22 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.Extensions.Configuration;
+
 using Remotion.Linq.Clauses;
 
 namespace CafeShop.Data
 {
     public class OrderRepository
     {
+        private readonly string connectionString = null;
+        public OrderRepository(IConfiguration configuration)
+        {
+            connectionString = configuration["DbConnection"];
+        }
         public IEnumerable<OrderViewModel> Get(string tableId = null)
         {
-            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection(connectionString))
             {
                 var whereClause = "WHERE 1 = 1";
                 if (tableId != null)
@@ -27,7 +34,7 @@ namespace CafeShop.Data
 
         public bool Create(IEnumerable<OrderViewModel> orderViewModels)
         {
-            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection(connectionString))
             {
                 foreach (var model in orderViewModels)
                 {
@@ -42,7 +49,7 @@ namespace CafeShop.Data
 
         public void DeleteOrdersByTable(Guid tableId)
         {
-            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Execute("DELETE FROM [Order] WHERE TableId = @TableId", new { @TableId = tableId });
             }
@@ -50,7 +57,7 @@ namespace CafeShop.Data
 
         public void Checkout(Guid tableId)
         {
-            using (var connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Execute(@"
                     declare @sessionId as uniqueidentifier  = newid();
