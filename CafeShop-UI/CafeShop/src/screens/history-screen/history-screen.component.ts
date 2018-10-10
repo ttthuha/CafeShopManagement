@@ -10,7 +10,7 @@ export class HistoryScreenComponent implements OnInit {
   @Input() tables = [];
   @Input() foods = [];
   @Input() orders = {};
-  //public URL = 'https://localhost:44361/api';
+  public URL = 'http://localhost:5000/api';
  // constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameTable', 'nameFood', 'quantity', 'total','date'];
   ngOnInit(): void {
