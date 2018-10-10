@@ -1,1 +1,30 @@
-HISTORY HERE
+<table mat-table [dataSource]="historyOrders" class="mat-elevation-z9">
+  <ng-container matColumnDef="nameTable">
+    <th mat-header-cell *matHeaderCellDef> BÀN </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nameFood">
+    <th mat-header-cell *matHeaderCellDef>MÓN </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>SỐ LƯỢNG</th>
+      <td mat-cell *matCellDef="let element"> {{getStatus(element)}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef>TỔNG TIỀN</th>
+    <td mat-cell *matCellDef="let element"></td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>NGÀY</th>
+        <td mat-cell *matCellDef="let element"> </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
