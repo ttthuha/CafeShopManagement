@@ -16,11 +16,11 @@ namespace CafeShop.Data
         {
             connectionString = configuration["DbConnection"];
         }
-        public IEnumerable<FoodViewModel> Get()
+        public IEnumerable<HistoryOrderViewModel> Get()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return connection.Query<FoodViewModel>(@"select [Table].Name, [Food].Name,[OrderHistory].Quantity,[OrderHistory].Price,[OrderHistory].Date 
+                return connection.Query<HistoryOrderViewModel>(@"select [Table].Name AS 'Table', [Food].Name AS 'Food',[OrderHistory].OrderSessionId ,[OrderHistory].Quantity ,[OrderHistory].Price,[OrderHistory].Date 
                                                         from [OrderHistory] 
                                                         inner join [Table] on [Table].Id = [OrderHistory].TableId 
                                                         inner join [Food] on [Food].Id = [OrderHistory].FoodId");

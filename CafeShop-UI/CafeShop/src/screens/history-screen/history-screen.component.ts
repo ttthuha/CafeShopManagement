@@ -7,16 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./history-screen.component.scss']
 })
 export class HistoryScreenComponent implements OnInit {
-  @Input() tables = [];
-  @Input() foods = [];
-  @Input() orders = {};
+  historyOrders = [];
   public URL = 'http://localhost:5000/api';
- // constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameTable', 'nameFood', 'quantity', 'total','date'];
   ngOnInit(): void {
-    // this.http.get(this.URL + '/history').subscribe((tablesResponse: any) => {
-    // this.tables = tablesResponse;
-    // });
+    this.http.get(this.URL + '/history-orders').subscribe((historyOrdersResponse: any) => {
+    this.historyOrders = historyOrdersResponse;
+    });
 
   }
 }
