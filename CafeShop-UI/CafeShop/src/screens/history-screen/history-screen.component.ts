@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./history-screen.component.scss']
 })
 export class HistoryScreenComponent implements OnInit {
-  public URL = 'https://localhost:443361/api';
+  public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
