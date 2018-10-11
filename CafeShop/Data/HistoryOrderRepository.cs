@@ -23,7 +23,7 @@ namespace CafeShop.Data
                 return connection.Query<HistoryOrderViewModel>(@"select [Table].Name AS 'Table', [Food].Name AS 'Food',[OrderHistory].OrderSessionId ,[OrderHistory].Quantity ,[OrderHistory].Price,[OrderHistory].Date 
                                                         from [OrderHistory] 
                                                         inner join [Table] on [Table].Id = [OrderHistory].TableId 
-                                                        inner join [Food] on [Food].Id = [OrderHistory].FoodId");
+                                                        inner join [Food] on [Food].Id = [OrderHistory].FoodId ");
             }
         }
     }
