@@ -1,5 +1,6 @@
 ﻿using CafeShop.Models;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,6 +11,11 @@ namespace CafeShop.Data
 {
     public class EmployeeRepository
     {
+        private readonly string connectionString = null;
+        public EmployeeRepository(IConfiguration configuration)
+        {
+            connectionString = configuration["DbConnection"];
+        }
         public IEnumerable<EmployeeViewModel> Get()
         {
             using (SqlConnection connection = new SqlConnection("Server=.\\sqlexpress;Database=CafeShopManagement;Trusted_Connection=True;"))
