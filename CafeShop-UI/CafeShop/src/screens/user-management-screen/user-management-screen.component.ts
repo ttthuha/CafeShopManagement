@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-management-screen.component.scss']
 })
 export class UserManagementScreenComponent implements OnInit {
-  public URL = 'https://localhost:44361/api';
+  public URL = 'https://localhost:5000/api';
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
