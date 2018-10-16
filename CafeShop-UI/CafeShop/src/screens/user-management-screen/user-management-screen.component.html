@@ -1,1 +1,34 @@
-QUẢN LÝ NHÂN VIÊN
+<table mat-table [dataSource]="employees" class="mat-elevation-z10">
+    <ng-container matColumnDef="nameEmp">
+      <th mat-header-cell *matHeaderCellDef> TÊN </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="phoneEmp">
+      <th mat-header-cell *matHeaderCellDef>SỐ ĐIỆN THOẠI </th>
+      <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="emailEmp">
+        <th mat-header-cell *matHeaderCellDef>EMAIL</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="DOB">
+          <th mat-header-cell *matHeaderCellDef>NGÀY SINH </th>
+          <td mat-cell *matCellDef="let element">{{element.birthDay}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="genderEmp">
+        <th mat-header-cell *matHeaderCellDef>GIỚI TÍNH </th>
+        <td mat-cell *matCellDef="let element">{{element.gender}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="typeEmp">
+    <th mat-header-cell *matHeaderCellDef>LOẠI NHÂN VIÊN</th>
+    <td mat-cell *matCellDef="let element"> {{element.type}}</td>
+  </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

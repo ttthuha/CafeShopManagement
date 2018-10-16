@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-management-screen.component.scss']
 })
 export class UserManagementScreenComponent implements OnInit {
-  public URL = 'https://localhost:44361/api';
+  employees=[];
+  public URL = 'https://localhost:5000/api';
   constructor(private http: HttpClient) { }
 
+  displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
   ngOnInit(): void {
-    // this.http.get(this.URL + '/history').subscribe((tablesResponse: any) => {
-    //   this.tables = tablesResponse;
-    // });
+    this.http.get(this.URL + '/employees').subscribe((employeesResponse: any) => {
+      this.employees = employeesResponse;
+    });
 
   }
 }
