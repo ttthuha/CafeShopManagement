@@ -13,7 +13,7 @@ export class UserManagementScreenComponent implements OnInit {
   displayedColumns: string[] = ['name', 'phone', 'email', 'DOB','type'];
   
   ngOnInit(): void {
-    this.http.get(this.URL + '/employee').subscribe((employeeResponse: any) => {
+    this.http.get(this.URL + '/employees').subscribe((employeeResponse: any) => {
     this.employees = employeeResponse;
     });
 
