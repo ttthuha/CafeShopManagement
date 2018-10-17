@@ -12,6 +12,7 @@ export class HistoryScreenComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   displayedColumns: string[] = ['nameTable', 'nameFood', 'quantity', 'total','date'];
+  
   ngOnInit(): void {
     this.http.get(this.URL + '/history-orders').subscribe((historyOrdersResponse: any) => {
          this.historyOrders = historyOrdersResponse;
