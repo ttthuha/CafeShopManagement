@@ -1,3 +1,4 @@
+
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,17 +8,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-management-screen.component.scss']
 })
 export class UserManagementScreenComponent implements OnInit {
-  employees=[];
-  @Output() viewEmployeeDetailMenuClick = new EventEmitter<any>();
-
+  employees = [];
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
+  
   ngOnInit(): void {
-      this.http.get(this.URL + '/employees').subscribe((employeesResponse: any) => {
-      this.employees = employeesResponse;
+    this.http.get(this.URL + '/employees').subscribe((employeeResponse: any) => {
+    this.employees = employeeResponse;
     });
+
   }
 }
-
- 
