@@ -33,6 +33,7 @@ namespace CafeShop
             services.AddTransient<FoodRepository>();
             services.AddTransient<OrderRepository>();
             services.AddTransient<HistoryOrderRepository>();
+            services.AddTransient<EmployeeRepository>();
 
             services.AddCors();
             // Register the Swagger generator, defining 1 or more Swagger documents

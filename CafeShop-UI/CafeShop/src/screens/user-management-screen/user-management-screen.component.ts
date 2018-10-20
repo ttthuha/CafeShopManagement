@@ -10,7 +10,7 @@ export class UserManagementScreenComponent implements OnInit {
   employees = [];
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
-  displayedColumns: string[] = ['name', 'phone', 'email', 'DOB','type'];
+  displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
   
   ngOnInit(): void {
     this.http.get(this.URL + '/employees').subscribe((employeeResponse: any) => {
