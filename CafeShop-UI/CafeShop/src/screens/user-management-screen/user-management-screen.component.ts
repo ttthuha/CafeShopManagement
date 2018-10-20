@@ -1,4 +1,4 @@
-import { Component, OnInit,Output } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserManagementScreenComponent implements OnInit {
   employees=[];
+  @Output() viewEmployeeDetailMenuClick = new EventEmitter<any>();
+
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
