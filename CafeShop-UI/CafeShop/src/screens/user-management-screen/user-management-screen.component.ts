@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserManagementScreenComponent implements OnInit {
   employees = [];
+  employeeName = "";
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
@@ -18,5 +19,16 @@ export class UserManagementScreenComponent implements OnInit {
     this.employees = employeeResponse;
     });
 
+  }
+  onSearchChange($event)
+  {
+    this.employeeName=$event.target.value;
+  }
+  onSearch()
+  {
+    console.log(this.employeeName);
+    this.http.get(this.URL + '/employees/search?employeeName=' + this.employeeName).subscribe((employeeResponse: any) => {
+      this.employees = employeeResponse;
+    });
   }
 }
