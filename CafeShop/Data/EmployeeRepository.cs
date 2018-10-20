@@ -30,5 +30,12 @@ namespace CafeShop.Data
                 return connection.Query<EmployeeViewModel>(@"select Id, Name, Phone,Email,Type,BirthDay,Gender from [Employee] where Name like '%" + employeeName + "%' order by Name ASC");
             }
         }
+        public void Add(EmployeeViewModel employeeViewModel)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+               connection.Execute(@"Insert into [Employee] (Id, Name, Phone,Email,Type,BirthDay,Gender) values (@Id, @Name, @Phone, @Email, @Type, @BirthDay, @Gender)",employeeViewModel);
+            }
+        }
     }
 }

@@ -34,8 +34,10 @@ namespace CafeShop.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] EmployeeViewModel employeeViewModel)
         {
+            employeeRepository.Add(employeeViewModel);
+            return Ok();
         }
 
         // PUT api/values/5

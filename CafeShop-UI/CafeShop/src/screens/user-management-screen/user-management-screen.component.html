@@ -3,10 +3,16 @@
   <button (click)="onSearch()">
       <mat-icon>find_in_page</mat-icon>
       TÌM KIẾM
-  </button> 
+  </button>
+  <button (click)="showEmployeeForm()">
+      <mat-icon>plus</mat-icon>
+      THEM NHAN VIEN
+  </button>
     <br>
     <br>
-
+    <cafeshop-add-new-employee *ngIf ="isShowEmployeeForm" (buttonClicked)= "hideEmployeeForm()">
+      
+    </cafeshop-add-new-employee>
 <table mat-table [dataSource]="employees" class="mat-elevation-z10">
     <ng-container matColumnDef="nameEmp">
       <th mat-header-cell *matHeaderCellDef> TÊN </th>

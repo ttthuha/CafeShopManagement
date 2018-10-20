@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserManagementScreenComponent implements OnInit {
   employees = [];
   employeeName = "";
+  isShowEmployeeForm = false;
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
@@ -30,5 +31,14 @@ export class UserManagementScreenComponent implements OnInit {
     this.http.get(this.URL + '/employees/search?employeeName=' + this.employeeName).subscribe((employeeResponse: any) => {
       this.employees = employeeResponse;
     });
+  }
+
+  showEmployeeForm()
+  {
+    this.isShowEmployeeForm = true;
+  }
+  hideEmployeeForm()
+  {
+    this.isShowEmployeeForm = false;
   }
 }
