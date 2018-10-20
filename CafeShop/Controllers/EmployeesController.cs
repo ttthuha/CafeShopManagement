@@ -49,5 +49,11 @@ namespace CafeShop.Controllers
         public void Delete(int id)
         {
         }
+        //Search api/value/s
+        [HttpGet, Route("search")]
+        public ActionResult<string> SearchEmpoyee(string employeeName)
+        {
+            return Ok(employeeRepository.Search(employeeName));
+        }
     }
 }

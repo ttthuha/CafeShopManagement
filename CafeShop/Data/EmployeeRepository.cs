@@ -20,7 +20,14 @@ namespace CafeShop.Data
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return connection.Query<EmployeeViewModel>(@"select Name, Phone,Email,Type,BirthDay,Gender from [Employee] order by Name ASC");
+                return connection.Query<EmployeeViewModel>(@"select Id, Name, Phone,Email,Type,BirthDay,Gender from [Employee] order by Name ASC");
+            }
+        }
+        public IEnumerable<EmployeeViewModel> Search(string employeeName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                return connection.Query<EmployeeViewModel>(@"select Id, Name, Phone,Email,Type,BirthDay,Gender from [Employee] where Name like '%" + employeeName + "%' order by Name ASC");
             }
         }
     }
