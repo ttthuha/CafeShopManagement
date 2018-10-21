@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>
+    TUYỂN DỤNG
+  </mat-card-title>
+  <mat-card-subtitle>
+    HỌ VÀ TÊN:
+    <input type="text" name="name" (change)="employeeName=$event.target.value" [value]= "employeeName"> <br>
+    SỐ ĐIỆN THOẠI:
+    <input type="text" name="phone" > <br>
+    EMAIL:
+    <input type="text" name="email"><br>
+    NGÀY SINH:
+    <input type="text" name="birthDay"><br>
+    GIỚI TÍNH:
+    <input type="text" name="gender"><br>
+    LOAI NHAN VIEN
+    <input type="text" name="type"><br>
+  </mat-card-subtitle>
+  <button (click) = "addEmployee()" >
+    THEM NHAN VIEN
+  </button>
+  <button (click) = "closeEmployeeForm()" >
+    DONG
+  </button>
+</mat-card>

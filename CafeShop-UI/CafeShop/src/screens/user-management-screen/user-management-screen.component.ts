@@ -13,7 +13,7 @@ export class UserManagementScreenComponent implements OnInit {
   isShowEmployeeForm = false;
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
-  displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp'];
+  displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp','actions'];
   
   ngOnInit(): void {
     this.http.get(this.URL + '/employees').subscribe((employeeResponse: any) => {
@@ -40,5 +40,13 @@ export class UserManagementScreenComponent implements OnInit {
   hideEmployeeForm()
   {
     this.isShowEmployeeForm = false;
+  }
+  deleteEmployee()
+  {
+
+  }
+  editEmployee()
+  {
+    
   }
 }
