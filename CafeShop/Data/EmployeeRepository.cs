@@ -45,5 +45,13 @@ namespace CafeShop.Data
                 connection.Execute(@"DELETE FROM [Employee] WHERE Id = "+ employeeID);
             }
         }
+
+        public void Edit(Guid employeeID,string employeeName, string employeePhone, string employeeEmail, string employeeType, string employeeBirthday, string employeeGender)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(@"UPDATE [Employee] SET Name = "+ employeeName + "Phone = " + employeePhone + "Email = " + employeeEmail + "Type = "+ employeeType + "BirthDay = "+ employeeBirthday + "Gender = " + employeeGender + " WHERE Id = @Id " ,new { Id = employeeID });
+            }
+        }
     }
 }
