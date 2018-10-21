@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import uuid from 'uuid';
 
 @Component({
   selector: 'cafeshop-add-new-employee',
@@ -10,8 +11,7 @@ export class AddNewEmployeeComponent {
   @Output() buttonClicked = new EventEmitter<any>();
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
-  
-  employeeName ="Thu Ha";
+  employeeName ="";
   employeePhone ="";
   employeeEmail="";
   employeeGender="";
@@ -20,6 +20,7 @@ export class AddNewEmployeeComponent {
   addEmployee()
   {
     this.http.post(this.URL + '/employees', {
+      id: uuid.v4(),
       name: this.employeeName,
       phone: this.employeePhone,
       gender: this.employeeGender,

@@ -6,20 +6,20 @@
     HỌ VÀ TÊN:
     <input type="text" name="name" (change)="employeeName=$event.target.value" [value]= "employeeName"> <br>
     SỐ ĐIỆN THOẠI:
-    <input type="text" name="phone" > <br>
+    <input type="text" name="phone" (change)="employeePhone=$event.target.value" [value]= "employeePhone" > <br>
     EMAIL:
-    <input type="text" name="email"><br>
+    <input type="text" name="email" (change)="employeeEmail=$event.target.value" [value]= "employeeEmail"><br>
     NGÀY SINH:
-    <input type="text" name="birthDay"><br>
+    <input type="text" name="birthDay" (change)="employeeBirthday=$event.target.value" [value]= "employeeBirthday"><br>
     GIỚI TÍNH:
-    <input type="text" name="gender"><br>
+    <input type="text" name="gender" (change)="employeeGender=$event.target.value" [value]= "employeeGender"><br>
     LOAI NHAN VIEN
-    <input type="text" name="type"><br>
+    <input type="text" name="type" (change)="employeeType=$event.target.value" [value]= "employeeType"><br>
   </mat-card-subtitle>
   <button (click) = "addEmployee()" >
-    THEM NHAN VIEN
+    THÊM NHÂN VIÊN
   </button>
   <button (click) = "closeEmployeeForm()" >
-    DONG
+    ĐÓNG
   </button>
 </mat-card>

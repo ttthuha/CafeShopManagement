@@ -37,5 +37,13 @@ namespace CafeShop.Data
                connection.Execute(@"Insert into [Employee] (Id, Name, Phone,Email,Type,BirthDay,Gender) values (@Id, @Name, @Phone, @Email, @Type, @BirthDay, @Gender)",employeeViewModel);
             }
         }
+
+        public void Delete(Guid employeeID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(@"DELETE FROM [Employee] WHERE Id = "+ employeeID);
+            }
+        }
     }
 }
