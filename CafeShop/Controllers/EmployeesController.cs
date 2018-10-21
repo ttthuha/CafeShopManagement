@@ -34,8 +34,9 @@ namespace CafeShop.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] EmployeeViewModel employeeViewModel)
+        public ActionResult Post([FromBody] EmployeeViewModel employeeViewModel )
         {
+            employeeViewModel.Id = Guid.NewGuid();
             employeeRepository.Add(employeeViewModel);
             return Ok();
         }

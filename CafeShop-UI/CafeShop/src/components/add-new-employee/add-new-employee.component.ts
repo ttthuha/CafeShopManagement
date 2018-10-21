@@ -11,7 +11,7 @@ export class AddNewEmployeeComponent {
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   
-  employeeName ="Thu Ha";
+  employeeName ="";
   employeePhone ="";
   employeeEmail="";
   employeeGender="";
