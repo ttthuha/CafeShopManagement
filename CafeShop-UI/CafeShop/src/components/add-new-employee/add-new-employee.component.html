@@ -1,25 +1,58 @@
 <mat-card>
   <mat-card-title>
-    TUYỂN DỤNG
+    THÊM NHÂN VIÊN MỚI
   </mat-card-title>
-  <mat-card-subtitle>
-    HỌ VÀ TÊN:
-    <input type="text" name="name" (change)="employeeName=$event.target.value" [value]= "employeeName"> <br>
-    SỐ ĐIỆN THOẠI:
-    <input type="text" name="phone" (change)="employeePhone=$event.target.value" [value]= "employeePhone" > <br>
-    EMAIL:
-    <input type="text" name="email" (change)="employeeEmail=$event.target.value" [value]= "employeeEmail"><br>
-    NGÀY SINH:
-    <input type="text" name="birthDay" (change)="employeeBirthday=$event.target.value" [value]= "employeeBirthday"><br>
-    GIỚI TÍNH:
-    <input type="text" name="gender" (change)="employeeGender=$event.target.value" [value]= "employeeGender"><br>
-    LOAI NHAN VIEN
-    <input type="text" name="type" (change)="employeeType=$event.target.value" [value]= "employeeType"><br>
+  <!-- <mat-card-subtitle>
+    HỌ VÀ TÊN: <br>
+    <input class = "input" type="text" name="name" (change)="employeeName=$event.target.value" [value]= "employeeName"> <br>
+    SỐ ĐIỆN THOẠI: <br>
+    <input class ="input" type="text" name="phone" > <br>
+    EMAIL:<br>
+    <input class ="input" type="text" name="email"><br>
+    NGÀY SINH: <br>
+    <input class ="input" type="text" name="birthDay"><br>
+    GIỚI TÍNH: <br>
+    <input class ="input" type="text" name="gender"><br>
+    LOẠI NHÂN VIÊN: <br>
+    <input class ="input" type="text" name="type"><br>
   </mat-card-subtitle>
-  <button (click) = "addEmployee()" >
-    THÊM NHÂN VIÊN
+  <form>
+  <button class = "button" (click) = "addEmployee()" >
+    THEM NHAN VIEN
   </button>
-  <button (click) = "closeEmployeeForm()" >
-    ĐÓNG
+  <button class ="button" (click) = "closeEmployeeForm()" >
+    DONG
   </button>
+</form> -->
 </mat-card>
+
+
+<form class="input">
+    <mat-form-field class="input-width" >
+      <textarea matInput placeholder="TÊN NHÂN VIÊN" (change)="employeeName=$event.target.value" [value]= "employeeName"></textarea > 
+    </mat-form-field>
+  
+    <mat-form-field class="input-width">
+      <textarea matInput placeholder="SỐ ĐIỆN THOẠI" (change)="employeePhone=$event.target.value" [value]= "employeePhone"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input-width">
+      <textarea matInput placeholder="EMAIL" (change)="employeeEmail=$event.target.value" [value]= "employeeEmail"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input-width">
+      <textarea matInput placeholder="GIỚI TÍNH" (change)="employeeGender=$event.target.value" [value]= "employeeGender"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input-width">
+      <textarea matInput placeholder="LOẠI NHÂN VIÊN" (change)="employeeType=$event.target.value" [value]= "employeeType"></textarea>
+    </mat-form-field>
+  </form>
+ <form class ="button">
+  <button class = "buttonAdd" (click) = "addEmployee()" >
+      THÊM
+  </button>
+  <button class ="buttonClose" (click) = "closeEmployeeForm()" >
+       ĐÓNG
+  </button>
+</form>
