@@ -42,6 +42,7 @@ import { RouterModule } from '@angular/router';
 import { HistoryScreenComponent } from 'src/screens/history-screen/history-screen.component';
 import { UserManagementScreenComponent } from 'src/screens/user-management-screen/user-management-screen.component';
 import { AddNewEmployeeComponent } from 'src/components/add-new-employee/add-new-employee.component';
+import { EditNewEmployeeComponent } from 'src/components/edit-new-employee/edit-new-employee.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AddNewEmployeeComponent } from 'src/components/add-new-employee/add-new
     HomeScreenComponent,
     HistoryScreenComponent,
     UserManagementScreenComponent,
-    AddNewEmployeeComponent
+    AddNewEmployeeComponent,
+    EditNewEmployeeComponent
   ],
   imports: [
     RouterModule.forRoot(

@@ -11,11 +11,13 @@ export class UserManagementScreenComponent implements OnInit {
   @Output() viewDetailEmployee = new EventEmitter<any>();
   employees = [];
   employeeName = "";
+  editEmployee = null;
   isShowEmployeeForm = false;
+  isShowEditEmployeeForm  =false;
   public URL = 'http://localhost:5000/api';
   constructor(private http: HttpClient) { }
   displayedColumns: string[] = ['nameEmp', 'phoneEmp', 'emailEmp', 'DOB','genderEmp','typeEmp','actions'];
-  
+
   ngOnInit(): void {
     this.http.get(this.URL + '/employees').subscribe((employeeResponse: any) => {
     this.employees = employeeResponse;
@@ -34,23 +36,41 @@ export class UserManagementScreenComponent implements OnInit {
     });
   }
 
-  showEmployeeForm()
-  {
+  showEmployeeForm() {
     this.isShowEmployeeForm = true;
   }
-  hideEmployeeForm()
-  {
+
+  onAddResult(employee) {
     this.isShowEmployeeForm = false;
+    if (!!employee) {
+      alert("Them moi thanh ccong");
+      this.employees.push(employee);
+      this.employees = [...this.employees];
+    }
   }
-  deleteEmployee(employeeId)
-  {
-    this.http.delete(this.URL + '/employees/'+ employeeId).subscribe((employeeResponse: any) => {
-      const employeeIndex = this.employees.findIndex(x => x.id === employeeId);
-       delete this.employees [employeeIndex];
+
+  deleteEmployee(employeeId) {
+    if (!window.confirm("Ban muon xoa khong"))
+      return;
+
+    this.http.delete(this.URL + '/employees/' + employeeId)
+    .subscribe(() => {
+      this.employees  = this.employees.filter(x => x.id !== employeeId);
     });
   }
-  editEmployee()
-  {
-    
+
+  openEditEmployeeForm(employee) {
+    this.isShowEditEmployeeForm = true;
+    this.editEmployee = employee;
+  }
+
+  onEditResult(employee) {
+    this.isShowEditEmployeeForm = false;
+    if (!!employee) {
+      alert("Bien tap tnnanh cong");
+      const index = this.employees.findIndex( x => x.id === employee.id);
+      this.employees[index] = employee;
+      this.employees = [...this.employees];
+    }
   }
 }

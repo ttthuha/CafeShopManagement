@@ -34,7 +34,7 @@ namespace CafeShop.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] EmployeeViewModel employeeViewModel )
+        public ActionResult Post([FromBody] EmployeeViewModel employeeViewModel)
         {
             employeeViewModel.Id = Guid.NewGuid();
             employeeRepository.Add(employeeViewModel);
@@ -43,8 +43,11 @@ namespace CafeShop.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(Guid id, [FromBody] EmployeeViewModel employeeViewModel)
         {
+            employeeViewModel.Id = id;
+            employeeRepository.Edit(employeeViewModel);
+            return Ok();
         }
 
         // DELETE api/values/5
