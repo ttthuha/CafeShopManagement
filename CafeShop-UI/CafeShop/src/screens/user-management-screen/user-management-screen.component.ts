@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-management-screen.component.scss']
 })
 export class UserManagementScreenComponent implements OnInit {
+  @Output() viewDetailEmployee = new EventEmitter<any>();
   employees = [];
   employeeName = "";
   isShowEmployeeForm = false;
