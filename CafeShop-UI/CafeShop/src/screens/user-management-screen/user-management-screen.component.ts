@@ -43,7 +43,7 @@ export class UserManagementScreenComponent implements OnInit {
   }
   deleteEmployee()
   {
-
+    
   }
   editEmployee()
   {
