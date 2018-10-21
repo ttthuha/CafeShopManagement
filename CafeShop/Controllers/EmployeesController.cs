@@ -41,14 +41,6 @@ namespace CafeShop.Controllers
             return Ok();
         }
 
-        // POST api/values
-        [HttpPost]
-        public ActionResult Edit(Guid employeeID, string employeeName, string employeePhone, string employeeEmail, string employeeType, string employeeBirthday, string employeeGender)
-        {
-            employeeRepository.Edit(employeeID, employeeName, employeePhone, employeeEmail, employeeType, employeeBirthday, employeeGender);
-            return Ok();
-        }
-
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
@@ -57,9 +49,10 @@ namespace CafeShop.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public ActionResult Delete(Guid id)
         {
-           // return Ok(employeeRepository.Delete(id));
+            employeeRepository.Delete(id);
+            return Ok();
         }
         //Search api/value/s
         [HttpGet, Route("search")]

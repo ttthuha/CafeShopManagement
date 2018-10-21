@@ -42,9 +42,12 @@ export class UserManagementScreenComponent implements OnInit {
   {
     this.isShowEmployeeForm = false;
   }
-  deleteEmployee()
+  deleteEmployee(employeeId)
   {
-    
+    this.http.delete(this.URL + '/employees/'+ employeeId).subscribe((employeeResponse: any) => {
+      const employeeIndex = this.employees.findIndex(x => x.id === employeeId);
+       delete this.employees [employeeIndex];
+    });
   }
   editEmployee()
   {

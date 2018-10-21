@@ -47,7 +47,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>HÀNH ĐỘNG</th>
     <td mat-cell *matCellDef="let element">
-      <button class (click)="deleteEmployee()" >XÓA </button>
+      <button class (click)="deleteEmployee(element.id)" >XÓA </button>
       <button class (click)="viewDetailEmployee.emit(element)">SỬA</button>
     
     </td>
