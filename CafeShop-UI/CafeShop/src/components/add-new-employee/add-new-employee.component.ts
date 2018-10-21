@@ -26,7 +26,7 @@ export class AddNewEmployeeComponent {
       email: this.employeeEmail,
       birthDay: this.employeeBirthday,
       type: this.employeeType
-    }).subscribe((historyOrdersResponse: any) => {
+    }).subscribe((employeeResponse: any) => {
     this.buttonClicked.emit();
    });
   }

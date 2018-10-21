@@ -49,9 +49,10 @@ namespace CafeShop.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public ActionResult Delete(Guid id)
         {
-            //return Ok(employeeRepository.Delete(id));
+            employeeRepository.Delete(id);
+            return Ok();
         }
         //Search api/value/s
         [HttpGet, Route("search")]
